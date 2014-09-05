@@ -55,7 +55,7 @@ class NumericDial: UIControl
         }
     }
     
-    var currentValue : Double = 0.25
+    var currentValue : Double = 0.0
     {
         didSet
         {
