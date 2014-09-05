@@ -12,6 +12,8 @@
 		BE703F5119BA353A00E2938E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE703F4F19BA353A00E2938E /* Main.storyboard */; };
 		BE703F5319BA353A00E2938E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE703F5219BA353A00E2938E /* Images.xcassets */; };
 		BE703F5F19BA353A00E2938E /* NumericDialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F5E19BA353A00E2938E /* NumericDialTests.swift */; };
+		BE703F6919BA35A100E2938E /* NumericDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F6819BA35A100E2938E /* NumericDial.swift */; };
+		BE703F6E19BA3F4700E2938E /* NumericDialTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F6D19BA3F4700E2938E /* NumericDialTrack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		BE703F5819BA353A00E2938E /* NumericDialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumericDialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE703F5D19BA353A00E2938E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE703F5E19BA353A00E2938E /* NumericDialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericDialTests.swift; sourceTree = "<group>"; };
+		BE703F6819BA35A100E2938E /* NumericDial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericDial.swift; sourceTree = "<group>"; };
+		BE703F6D19BA3F4700E2938E /* NumericDialTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericDialTrack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		BE703F4819BA353A00E2938E /* NumericDial */ = {
 			isa = PBXGroup;
 			children = (
+				BE703F6A19BA367200E2938E /* numericDial */,
 				BE703F4B19BA353A00E2938E /* AppDelegate.swift */,
 				BE703F4D19BA353A00E2938E /* ViewController.swift */,
 				BE703F4F19BA353A00E2938E /* Main.storyboard */,
@@ -107,6 +112,15 @@
 				BE703F5D19BA353A00E2938E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE703F6A19BA367200E2938E /* numericDial */ = {
+			isa = PBXGroup;
+			children = (
+				BE703F6819BA35A100E2938E /* NumericDial.swift */,
+				BE703F6D19BA3F4700E2938E /* NumericDialTrack.swift */,
+			);
+			name = numericDial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +222,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE703F6E19BA3F4700E2938E /* NumericDialTrack.swift in Sources */,
+				BE703F6919BA35A100E2938E /* NumericDial.swift in Sources */,
 				BE703F4E19BA353A00E2938E /* ViewController.swift in Sources */,
 				BE703F4C19BA353A00E2938E /* AppDelegate.swift in Sources */,
 			);

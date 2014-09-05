@@ -9,17 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
-    override func viewDidLoad() {
+    
+    let numericDial = NumericDial(frame: CGRectZero)
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        view.addSubview(numericDial)
+        
+        numericDial.addTarget(self, action: "numericDialValueChanged:", forControlEvents: .ValueChanged)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numericDialValueChanged(numericDial : NumericDial)
+    {
+        println("Hello from numericDialValueChanged \(numericDial.currentValue)")
+        
+        hSlider.value = Float(numericDial.currentValue)
     }
-
-
+    
+    override func viewDidLayoutSubviews()
+    {
+        let margin: CGFloat = 20.0
+        let width = view.bounds.width - 2.0 * margin
+        numericDial.frame = CGRect(x: margin, y: margin + topLayoutGuide.length, width: 300, height: 300)
+    }
+    
+    @IBAction func sliderChangeHandler(sender: AnyObject)
+    {
+        numericDial.currentValue = Double(hSlider.value)
+    }
+    
+    @IBOutlet var hSlider: UISlider!
 }
 
