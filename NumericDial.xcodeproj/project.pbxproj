@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE703F4C19BA353A00E2938E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F4B19BA353A00E2938E /* AppDelegate.swift */; };
+		BE703F4E19BA353A00E2938E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F4D19BA353A00E2938E /* ViewController.swift */; };
+		BE703F5119BA353A00E2938E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE703F4F19BA353A00E2938E /* Main.storyboard */; };
+		BE703F5319BA353A00E2938E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE703F5219BA353A00E2938E /* Images.xcassets */; };
+		BE703F5F19BA353A00E2938E /* NumericDialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F5E19BA353A00E2938E /* NumericDialTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE703F5919BA353A00E2938E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE703F3E19BA353A00E2938E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE703F4519BA353A00E2938E;
+			remoteInfo = NumericDial;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE703F4619BA353A00E2938E /* NumericDial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumericDial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE703F4A19BA353A00E2938E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE703F4B19BA353A00E2938E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE703F4D19BA353A00E2938E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE703F5019BA353A00E2938E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE703F5219BA353A00E2938E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BE703F5819BA353A00E2938E /* NumericDialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumericDialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE703F5D19BA353A00E2938E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE703F5E19BA353A00E2938E /* NumericDialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericDialTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE703F4319BA353A00E2938E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE703F5519BA353A00E2938E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE703F3D19BA353A00E2938E = {
+			isa = PBXGroup;
+			children = (
+				BE703F4819BA353A00E2938E /* NumericDial */,
+				BE703F5B19BA353A00E2938E /* NumericDialTests */,
+				BE703F4719BA353A00E2938E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE703F4719BA353A00E2938E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE703F4619BA353A00E2938E /* NumericDial.app */,
+				BE703F5819BA353A00E2938E /* NumericDialTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE703F4819BA353A00E2938E /* NumericDial */ = {
+			isa = PBXGroup;
+			children = (
+				BE703F4B19BA353A00E2938E /* AppDelegate.swift */,
+				BE703F4D19BA353A00E2938E /* ViewController.swift */,
+				BE703F4F19BA353A00E2938E /* Main.storyboard */,
+				BE703F5219BA353A00E2938E /* Images.xcassets */,
+				BE703F4919BA353A00E2938E /* Supporting Files */,
+			);
+			path = NumericDial;
+			sourceTree = "<group>";
+		};
+		BE703F4919BA353A00E2938E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE703F4A19BA353A00E2938E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE703F5B19BA353A00E2938E /* NumericDialTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE703F5E19BA353A00E2938E /* NumericDialTests.swift */,
+				BE703F5C19BA353A00E2938E /* Supporting Files */,
+			);
+			path = NumericDialTests;
+			sourceTree = "<group>";
+		};
+		BE703F5C19BA353A00E2938E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE703F5D19BA353A00E2938E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE703F4519BA353A00E2938E /* NumericDial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE703F6219BA353A00E2938E /* Build configuration list for PBXNativeTarget "NumericDial" */;
+			buildPhases = (
+				BE703F4219BA353A00E2938E /* Sources */,
+				BE703F4319BA353A00E2938E /* Frameworks */,
+				BE703F4419BA353A00E2938E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NumericDial;
+			productName = NumericDial;
+			productReference = BE703F4619BA353A00E2938E /* NumericDial.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE703F5719BA353A00E2938E /* NumericDialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE703F6519BA353A00E2938E /* Build configuration list for PBXNativeTarget "NumericDialTests" */;
+			buildPhases = (
+				BE703F5419BA353A00E2938E /* Sources */,
+				BE703F5519BA353A00E2938E /* Frameworks */,
+				BE703F5619BA353A00E2938E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE703F5A19BA353A00E2938E /* PBXTargetDependency */,
+			);
+			name = NumericDialTests;
+			productName = NumericDialTests;
+			productReference = BE703F5819BA353A00E2938E /* NumericDialTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE703F3E19BA353A00E2938E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Simon Gladman";
+				TargetAttributes = {
+					BE703F4519BA353A00E2938E = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					BE703F5719BA353A00E2938E = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = BE703F4519BA353A00E2938E;
+					};
+				};
+			};
+			buildConfigurationList = BE703F4119BA353A00E2938E /* Build configuration list for PBXProject "NumericDial" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE703F3D19BA353A00E2938E;
+			productRefGroup = BE703F4719BA353A00E2938E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE703F4519BA353A00E2938E /* NumericDial */,
+				BE703F5719BA353A00E2938E /* NumericDialTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE703F4419BA353A00E2938E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE703F5119BA353A00E2938E /* Main.storyboard in Resources */,
+				BE703F5319BA353A00E2938E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE703F5619BA353A00E2938E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE703F4219BA353A00E2938E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE703F4E19BA353A00E2938E /* ViewController.swift in Sources */,
+				BE703F4C19BA353A00E2938E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE703F5419BA353A00E2938E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE703F5F19BA353A00E2938E /* NumericDialTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE703F5A19BA353A00E2938E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE703F4519BA353A00E2938E /* NumericDial */;
+			targetProxy = BE703F5919BA353A00E2938E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE703F4F19BA353A00E2938E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE703F5019BA353A00E2938E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE703F6019BA353A00E2938E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		BE703F6119BA353A00E2938E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE703F6319BA353A00E2938E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = NumericDial/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BE703F6419BA353A00E2938E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = NumericDial/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BE703F6619BA353A00E2938E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NumericDialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumericDial.app/NumericDial";
+			};
+			name = Debug;
+		};
+		BE703F6719BA353A00E2938E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NumericDialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumericDial.app/NumericDial";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE703F4119BA353A00E2938E /* Build configuration list for PBXProject "NumericDial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE703F6019BA353A00E2938E /* Debug */,
+				BE703F6119BA353A00E2938E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE703F6219BA353A00E2938E /* Build configuration list for PBXNativeTarget "NumericDial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE703F6319BA353A00E2938E /* Debug */,
+				BE703F6419BA353A00E2938E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BE703F6519BA353A00E2938E /* Build configuration list for PBXNativeTarget "NumericDialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE703F6619BA353A00E2938E /* Debug */,
+				BE703F6719BA353A00E2938E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE703F3E19BA353A00E2938E /* Project object */;
+}
