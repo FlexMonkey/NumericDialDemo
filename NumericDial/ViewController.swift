@@ -5,6 +5,10 @@
 //  Created by Simon Gladman on 05/09/2014.
 //  Copyright (c) 2014 Simon Gladman. All rights reserved.
 //
+//  Demo of NumericDial Control
+//
+//  Demo shows a dial with a horizontal slider. When either changes, the other reflects that change
+//  With help from http://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift
 
 import UIKit
 
