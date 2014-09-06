@@ -45,6 +45,7 @@ class NumericDialTrack: CALayer
             
             CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 0.0), 5.0, UIColor.grayColor().CGColor)
             
+            // outer thumb
             let thumbPath = UIBezierPath(ovalInRect: CGRect(x: -25, y: -145, width: 30, height: 30))
             
             CGContextTranslateCTM(ctx, 150, 150)
@@ -54,6 +55,16 @@ class NumericDialTrack: CALayer
             CGContextSetFillColorWithColor(ctx, UIColor.blueColor().CGColor)
             CGContextFillPath(ctx)
             CGContextStrokePath(ctx)
+            
+            // inner thumb
+            let innerThumbPath = UIBezierPath(ovalInRect: CGRect(x: -22, y: -142, width: 24, height: 24))
+
+            CGContextAddPath(ctx, innerThumbPath.CGPath)
+            CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
+            CGContextFillPath(ctx)
+            CGContextStrokePath(ctx)
+           
+            
         }
     }
 }
