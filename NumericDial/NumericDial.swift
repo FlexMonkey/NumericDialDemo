@@ -13,6 +13,7 @@ class NumericDial: UIControl
     let minimumValue = 0.0
     let maximumValue = 1.0
     let trackLayer = NumericDialTrack()
+    let label = UILabel();
     
     override init(frame: CGRect)
     {
@@ -21,6 +22,9 @@ class NumericDial: UIControl
         trackLayer.numericDial = self
         trackLayer.contentsScale = UIScreen.mainScreen().scale
         layer.addSublayer(trackLayer)
+        
+        label.textAlignment = NSTextAlignment.Center
+        self.addSubview(label)
         
         drawTrack()
     }
@@ -63,7 +67,7 @@ class NumericDial: UIControl
             CATransaction.setDisableActions(true)
             
             sendActionsForControlEvents(.ValueChanged)
-            trackLayer.setNeedsDisplay()
+            drawTrack()
             
             CATransaction.commit()
         }
@@ -71,6 +75,9 @@ class NumericDial: UIControl
     
     func drawTrack()
     {
+        label.frame = bounds.rectByInsetting(dx: 0, dy: 0)
+        label.text = NSString(format: "%.4f", currentValue);
+        
         trackLayer.frame = bounds.rectByInsetting(dx: 0.0, dy: 0.0)
         trackLayer.setNeedsDisplay()
     }
