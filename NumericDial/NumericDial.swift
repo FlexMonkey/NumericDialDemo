@@ -53,7 +53,7 @@ class NumericDial: UIControl
         let angle = atan2(location.x - (frame.width / 2), location.y - (frame.height / 2)) * 180/CGFloat(M_PI)
         let distance = hypot(location.x - (frame.width / 2), location.y - (frame.height / 2))
         
-        if (distance > 80 && (angle < -45 && angle > -180) || (angle < 180 && angle > 45))
+        if (distance > (frame.width / 2.0 * 0.6) && (angle < -45 && angle > -180) || (angle < 180 && angle > 45))
         {
             currentValue = Double(getValueFromAngle(angle))
         }

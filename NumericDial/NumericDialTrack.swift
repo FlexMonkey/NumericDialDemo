@@ -17,8 +17,10 @@ class NumericDialTrack: CALayer
         if let value = numericDial?.currentValue
         {
             let angle : CGFloat = -135 + 270 * CGFloat(value)
+            let centre = min(frame.width, frame.height) / 2.0
+            let radius = centre - 20
         
-            let trackPath = UIBezierPath(arcCenter: CGPoint(x: 150, y: 150), radius: 130, startAngle: 135 * CGFloat(M_PI)/180, endAngle: 45 * CGFloat(M_PI)/180, clockwise: true)
+            let trackPath = UIBezierPath(arcCenter: CGPoint(x: centre, y: centre), radius: radius, startAngle: 135 * CGFloat(M_PI)/180, endAngle: 45 * CGFloat(M_PI)/180, clockwise: true)
 
             // outer path
             CGContextSetLineCap(ctx, kCGLineCapRound);
@@ -34,7 +36,7 @@ class NumericDialTrack: CALayer
             CGContextSetLineWidth(ctx, 5)
             CGContextStrokePath(ctx)
             
-            let valuePath = UIBezierPath(arcCenter: CGPoint(x: 150, y: 150), radius: 130, startAngle: 135 * CGFloat(M_PI)/180, endAngle: (angle - 90) * CGFloat(M_PI)/180, clockwise: true)
+            let valuePath = UIBezierPath(arcCenter: CGPoint(x: centre, y: centre), radius: radius, startAngle: 135 * CGFloat(M_PI)/180, endAngle: (angle - 90) * CGFloat(M_PI)/180, clockwise: true)
             
             // value path
             CGContextSetLineCap(ctx, kCGLineCapRound);
@@ -46,9 +48,9 @@ class NumericDialTrack: CALayer
             CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 0.0), 5.0, UIColor.grayColor().CGColor)
             
             // outer thumb
-            let thumbPath = UIBezierPath(ovalInRect: CGRect(x: -25, y: -145, width: 30, height: 30))
+            let thumbPath = UIBezierPath(ovalInRect: CGRect(x: -25, y: -centre + 5, width: 30, height: 30))
             
-            CGContextTranslateCTM(ctx, 150, 150)
+            CGContextTranslateCTM(ctx, centre, centre)
             CGContextRotateCTM(ctx, angle * CGFloat(M_PI) / 180)
             
             CGContextAddPath(ctx, thumbPath.CGPath)
@@ -57,7 +59,7 @@ class NumericDialTrack: CALayer
             CGContextStrokePath(ctx)
             
             // inner thumb
-            let innerThumbPath = UIBezierPath(ovalInRect: CGRect(x: -22, y: -142, width: 24, height: 24))
+            let innerThumbPath = UIBezierPath(ovalInRect: CGRect(x: -22, y: -centre + 8, width: 24, height: 24))
 
             CGContextAddPath(ctx, innerThumbPath.CGPath)
             CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)

@@ -27,8 +27,6 @@ class ViewController: UIViewController {
 
     func numericDialValueChanged(numericDial : NumericDial)
     {
-        println("Hello from numericDialValueChanged \(numericDial.currentValue)")
-        
         hSlider.value = Float(numericDial.currentValue)
     }
     
@@ -36,7 +34,7 @@ class ViewController: UIViewController {
     {
         let margin: CGFloat = 20.0
         let width = view.bounds.width - 2.0 * margin
-        numericDial.frame = CGRect(x: margin, y: margin + topLayoutGuide.length, width: 300, height: 300)
+        numericDial.frame = CGRect(x: margin, y: margin + topLayoutGuide.length, width: 325, height: 325)
     }
     
     @IBAction func sliderChangeHandler(sender: AnyObject)
