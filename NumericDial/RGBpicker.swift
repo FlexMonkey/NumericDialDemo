@@ -26,10 +26,6 @@ class RGBpicker: UIControl
         addSubview(redDial)
         addSubview(greenDial)
         addSubview(blueDial)
-
-        redDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-        greenDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-        blueDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
         
         swatch.backgroundColor = UIColor.blackColor()
         addSubview(swatch)
@@ -40,15 +36,35 @@ class RGBpicker: UIControl
         super.init(coder: coder)
     }
 
+    var currentColor : UIColor = UIColor.blackColor()
+    {
+        didSet
+        {
+            let colorRef = CGColorGetComponents(currentColor.CGColor);
+            
+            redDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            greenDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            blueDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            
+            redDial.currentValue = Double(colorRef[0])
+            greenDial.currentValue = Double(colorRef[1])
+            blueDial.currentValue = Double(colorRef[2]); 
+            
+            redDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            greenDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            blueDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            
+            swatch.backgroundColor = currentColor
+        }
+    }
+    
     func numericDialValueChanged(numericDial : NumericDial)
     {
         let red = CGFloat(redDial.currentValue)
         let green = CGFloat(greenDial.currentValue)
         let blue = CGFloat(blueDial.currentValue)
         
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        
-        swatch.backgroundColor = color
+        currentColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
     override func didMoveToWindow()
@@ -68,7 +84,8 @@ class RGBpicker: UIControl
     {
         func redLabelFunction(value : Double) -> String
         {
-            return label + NSString(format: "%.4f", value)
+            // return label + NSString(format: "%.4f", value)
+            return label + NSString(format: "%2X", Int(value * 255))
         }
         
         return redLabelFunction

@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         view.addSubview(numericDial)
         view.addSubview(rgbPicker)
         
+        rgbPicker.currentColor = UIColor.brownColor()
+        
         numericDial.addTarget(self, action: "numericDialValueChanged:", forControlEvents: .ValueChanged)
     }
 

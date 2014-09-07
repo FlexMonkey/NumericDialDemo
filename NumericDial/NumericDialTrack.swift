@@ -26,14 +26,14 @@ class NumericDialTrack: CALayer
             CGContextSetLineCap(ctx, kCGLineCapRound);
             CGContextAddPath(ctx, trackPath.CGPath)
             CGContextSetStrokeColorWithColor(ctx, UIColor.darkGrayColor().CGColor)
-            CGContextSetLineWidth(ctx, 10)
+            CGContextSetLineWidth(ctx, 30)
             CGContextStrokePath(ctx)
             
             // inner path
             CGContextSetLineCap(ctx, kCGLineCapRound);
             CGContextAddPath(ctx, trackPath.CGPath)
             CGContextSetStrokeColorWithColor(ctx, UIColor.whiteColor().CGColor)
-            CGContextSetLineWidth(ctx, 5)
+            CGContextSetLineWidth(ctx, 25)
             CGContextStrokePath(ctx)
             
             let valuePath = UIBezierPath(arcCenter: CGPoint(x: centre, y: centre), radius: radius, startAngle: 135 * CGFloat(M_PI)/180, endAngle: (angle - 90) * CGFloat(M_PI)/180, clockwise: true)
@@ -42,11 +42,12 @@ class NumericDialTrack: CALayer
             CGContextSetLineCap(ctx, kCGLineCapRound);
             CGContextAddPath(ctx, valuePath.CGPath)
             CGContextSetStrokeColorWithColor(ctx, UIColor.blueColor().CGColor)
-            CGContextSetLineWidth(ctx, 3)
+            CGContextSetLineWidth(ctx, 20)
             CGContextStrokePath(ctx)
             
             CGContextSetShadowWithColor(ctx, CGSize(width: 0.0, height: 0.0), 5.0, UIColor.grayColor().CGColor)
             
+            /*
             // outer thumb
             let thumbPath = UIBezierPath(ovalInRect: CGRect(x: -25, y: -centre + 5, width: 30, height: 30))
             
@@ -65,7 +66,7 @@ class NumericDialTrack: CALayer
             CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
             CGContextFillPath(ctx)
             CGContextStrokePath(ctx)
-           
+            */
             
         }
     }
