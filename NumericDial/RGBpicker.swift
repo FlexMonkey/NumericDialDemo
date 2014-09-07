@@ -27,8 +27,9 @@ class RGBpicker: UIControl
         addSubview(greenDial)
         addSubview(blueDial)
         
-        swatch.backgroundColor = UIColor.blackColor()
         addSubview(swatch)
+        
+        addDispatchers()
     }
     
     required init(coder: NSCoder)
@@ -42,20 +43,32 @@ class RGBpicker: UIControl
         {
             let colorRef = CGColorGetComponents(currentColor.CGColor);
             
-            redDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-            greenDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-            blueDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            removeDispatchers()
             
             redDial.currentValue = Double(colorRef[0])
             greenDial.currentValue = Double(colorRef[1])
             blueDial.currentValue = Double(colorRef[2]); 
             
-            redDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-            greenDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-            blueDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+            addDispatchers()
             
             swatch.backgroundColor = currentColor
+            
+            sendActionsForControlEvents(.ValueChanged)
         }
+    }
+    
+    func addDispatchers()
+    {
+        redDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        greenDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        blueDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+    }
+    
+    func removeDispatchers()
+    {
+        redDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        greenDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        blueDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
     }
     
     func numericDialValueChanged(numericDial : NumericDial)

@@ -12,43 +12,53 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    let numericDial = NumericDial(frame: CGRectZero)
-    
+class ViewController: UIViewController
+{
     let rgbPicker = RGBpicker(frame: CGRectZero)
+    let rgbPicker2 = RGBpicker(frame: CGRectZero)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        view.addSubview(numericDial)
         view.addSubview(rgbPicker)
+        view.addSubview(rgbPicker2)
         
-        rgbPicker.currentColor = UIColor.brownColor()
+        currentColor = UIColor.brownColor()
         
-        numericDial.addTarget(self, action: "numericDialValueChanged:", forControlEvents: .ValueChanged)
+        rgbPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+        rgbPicker2.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
     }
 
-    func numericDialValueChanged(numericDial : NumericDial)
+    var currentColor : UIColor = UIColor.blackColor()
     {
-        hSlider.value = Float(numericDial.currentValue)
+        didSet
+        {
+            rgbPicker.removeTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+            rgbPicker2.removeTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+            
+            rgbPicker.currentColor = currentColor
+            rgbPicker2.currentColor = currentColor
+            
+            rgbPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+            rgbPicker2.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+        }
+    }
+    
+    func colorChanged(value : RGBpicker)
+    {
+        currentColor = value.currentColor
     }
     
     override func viewDidLayoutSubviews()
     {
         let margin: CGFloat = 20.0
         let width = 325 - 2.0 * margin
-        numericDial.frame = CGRect(x: margin, y: margin + topLayoutGuide.length, width: 325, height: 325)
         
-        rgbPicker.frame = CGRect(x: 400, y: margin + topLayoutGuide.length, width: 600, height: 200)
+        rgbPicker.frame = CGRect(x: view.frame.width / 2 - 300, y: margin, width: 600, height: 200)
+        rgbPicker2.frame = CGRect(x: view.frame.width / 2 - 300, y: view.frame.height - 200 - margin, width: 600, height: 200)
     }
-    
-    @IBAction func sliderChangeHandler(sender: AnyObject)
-    {
-        numericDial.currentValue = Double(hSlider.value)
-    }
-    
-    @IBOutlet var hSlider: UISlider!
+
+
 }
 
