@@ -14,20 +14,20 @@ import UIKit
 
 class ViewController: UIViewController
 {
-    let rgbPicker = RGBpicker(frame: CGRectZero)
-    let rgbPicker2 = RGBpicker(frame: CGRectZero)
+    let rgbPicker = RGBpicker(frame: CGRectZero, cmykMode : false)
+    let cmykPicker = RGBpicker(frame: CGRectZero, cmykMode : true)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         view.addSubview(rgbPicker)
-        view.addSubview(rgbPicker2)
+        view.addSubview(cmykPicker)
         
         currentColor = UIColor.brownColor()
         
         rgbPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
-        rgbPicker2.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+        cmykPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
     }
 
     var currentColor : UIColor = UIColor.blackColor()
@@ -35,13 +35,13 @@ class ViewController: UIViewController
         didSet
         {
             rgbPicker.removeTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
-            rgbPicker2.removeTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+            cmykPicker.removeTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
             
             rgbPicker.currentColor = currentColor
-            rgbPicker2.currentColor = currentColor
+            cmykPicker.currentColor = currentColor
             
             rgbPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
-            rgbPicker2.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
+            cmykPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
         }
     }
     
@@ -56,7 +56,7 @@ class ViewController: UIViewController
         let width = 325 - 2.0 * margin
         
         rgbPicker.frame = CGRect(x: view.frame.width / 2 - 300, y: margin, width: 600, height: 200)
-        rgbPicker2.frame = CGRect(x: view.frame.width / 2 - 300, y: view.frame.height - 200 - margin, width: 600, height: 200)
+        cmykPicker.frame = CGRect(x: view.frame.width / 2 - 400, y: view.frame.height - 200 - margin, width: 800, height: 200)
     }
 
 

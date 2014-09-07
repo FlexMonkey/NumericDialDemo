@@ -10,22 +10,32 @@ import UIKit
 
 class RGBpicker: UIControl
 {
-    let redDial = NumericDial(frame: CGRectZero)
-    let greenDial = NumericDial(frame: CGRectZero)
-    let blueDial = NumericDial(frame: CGRectZero)
+    let redCyanDial = NumericDial(frame: CGRectZero)
+    let greenMagentaDial = NumericDial(frame: CGRectZero)
+    let blueYellowDial = NumericDial(frame: CGRectZero)
+    let blackDial : NumericDial?
     let swatch = UIView()
+    let cmykMode : Bool
 
     let numericDialValueChangedSelector : Selector = Selector.convertFromStringLiteral("numericDialValueChanged:")
     
-    override init(frame: CGRect)
+    init(frame: CGRect, cmykMode : Bool)
     {
-        super.init(frame: CGRect(x: 0, y: 0, width: 600, height: 200))
+        self.cmykMode = cmykMode
+        
+        super.init(frame: CGRect(x: 0, y: 0, width: cmykMode ? 800: 600, height: 200))
         
         backgroundColor = UIColor.lightGrayColor()
         
-        addSubview(redDial)
-        addSubview(greenDial)
-        addSubview(blueDial)
+        addSubview(redCyanDial)
+        addSubview(greenMagentaDial)
+        addSubview(blueYellowDial)
+        
+        if(cmykMode)
+        {
+            blackDial = NumericDial(frame: CGRectZero)
+            addSubview(blackDial!)
+        }
         
         addSubview(swatch)
         
@@ -34,6 +44,7 @@ class RGBpicker: UIControl
     
     required init(coder: NSCoder)
     {
+        self.cmykMode = false;
         super.init(coder: coder)
     }
 
@@ -45,9 +56,21 @@ class RGBpicker: UIControl
             
             removeDispatchers()
             
-            redDial.currentValue = Double(colorRef[0])
-            greenDial.currentValue = Double(colorRef[1])
-            blueDial.currentValue = Double(colorRef[2]); 
+            if cmykMode
+            {
+                let k = 1 - max(max(Double(colorRef[0]), Double(colorRef[1])), Double(colorRef[2]))
+                
+                blackDial!.currentValue = k
+                redCyanDial.currentValue = (1 - Double(colorRef[0]) - k) / (1 - k)
+                greenMagentaDial.currentValue = (1 - Double(colorRef[1]) - k) / (1 - k)
+                blueYellowDial.currentValue = (1 - Double(colorRef[2]) - k) / (1 - k)
+            }
+            else
+            {
+                redCyanDial.currentValue = Double(colorRef[0])
+                greenMagentaDial.currentValue = Double(colorRef[1])
+                blueYellowDial.currentValue = Double(colorRef[2])
+            }
             
             addDispatchers()
             
@@ -59,49 +82,86 @@ class RGBpicker: UIControl
     
     func addDispatchers()
     {
-        redDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-        greenDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-        blueDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        redCyanDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        greenMagentaDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        blueYellowDial.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        
+        if cmykMode
+        {
+           blackDial!.addTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        }
     }
     
     func removeDispatchers()
     {
-        redDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-        greenDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
-        blueDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        redCyanDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        greenMagentaDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        blueYellowDial.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        
+        if cmykMode
+        {
+            blackDial!.removeTarget(self, action: numericDialValueChangedSelector, forControlEvents: .ValueChanged)
+        }
     }
     
     func numericDialValueChanged(numericDial : NumericDial)
     {
-        let red = CGFloat(redDial.currentValue)
-        let green = CGFloat(greenDial.currentValue)
-        let blue = CGFloat(blueDial.currentValue)
-        
-        currentColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        if cmykMode
+        {
+            let red = (1 - CGFloat(redCyanDial.currentValue)) * (1 - CGFloat(blackDial!.currentValue))
+            let green = (1 - CGFloat(greenMagentaDial.currentValue)) * (1 - CGFloat(blackDial!.currentValue))
+            let blue = (1 - CGFloat(blueYellowDial.currentValue)) * (1 - CGFloat(blackDial!.currentValue))
+            
+            currentColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        }
+        else
+        {
+            let red = CGFloat(redCyanDial.currentValue)
+            let green = CGFloat(greenMagentaDial.currentValue)
+            let blue = CGFloat(blueYellowDial.currentValue)
+            
+            currentColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        }
     }
     
     override func didMoveToWindow()
     {
-        redDial.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        greenDial.frame = CGRect(x: 200, y: 0, width: 200, height: 200)
-        blueDial.frame = CGRect(x: 400, y: 0, width: 200, height: 200)
+        redCyanDial.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        greenMagentaDial.frame = CGRect(x: 200, y: 0, width: 200, height: 200)
+        blueYellowDial.frame = CGRect(x: 400, y: 0, width: 200, height: 200)
+ 
+        swatch.frame = CGRect(x: 5, y: 180, width: frame.width - 10, height: 15)
         
-        swatch.frame = CGRect(x: 20, y: 185, width: 560, height: 10)
+        let redCyanLabel = cmykMode ? "Cyan" : "Red"
+        let greenMagentaLabel = cmykMode ? "Magenta" : "Green"
+        let blueYellowLabel = cmykMode ? "Yellow" : "Blue"
         
-        redDial.labelFunction = createLabelFunction("Red: ")
-        greenDial.labelFunction = createLabelFunction("Green: ")
-        blueDial.labelFunction = createLabelFunction("Blue: ")
+        redCyanDial.labelFunction = createLabelFunction("\(redCyanLabel): ")
+        greenMagentaDial.labelFunction = createLabelFunction("\(greenMagentaLabel): ")
+        blueYellowDial.labelFunction = createLabelFunction("\(blueYellowLabel): ")
+        
+        if cmykMode
+        {
+            blackDial?.frame = CGRect(x: 600, y: 0, width: 200, height: 200)
+            blackDial?.labelFunction = createLabelFunction("Black: ")
+        }
     }
 
     func createLabelFunction(label : String) -> ((Double) -> String)
     {
-        func redLabelFunction(value : Double) -> String
+        func rgbLabelFunction(value : Double) -> String
         {
-            // return label + NSString(format: "%.4f", value)
-            return label + NSString(format: "%2X", Int(value * 255))
+            if (cmykMode)
+            {
+                return label + NSString(format: "%d", Int(value * 100)) + "%"
+            }
+            else
+            {
+                return label + NSString(format: "%2X", Int(value * 255))
+            }
         }
         
-        return redLabelFunction
+        return rgbLabelFunction
     }
     
 
