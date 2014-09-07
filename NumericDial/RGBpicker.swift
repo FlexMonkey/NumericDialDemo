@@ -19,6 +19,8 @@ class RGBpicker: UIControl
 
     let numericDialValueChangedSelector : Selector = Selector.convertFromStringLiteral("numericDialValueChanged:")
     
+    var updateDialsOnColorChange : Bool = true;
+    
     init(frame: CGRect, cmykMode : Bool)
     {
         self.cmykMode = cmykMode
@@ -52,27 +54,30 @@ class RGBpicker: UIControl
     {
         didSet
         {
-            let colorRef = CGColorGetComponents(currentColor.CGColor);
-            
-            removeDispatchers()
-            
-            if cmykMode
+            if updateDialsOnColorChange
             {
-                let k = 1 - max(max(Double(colorRef[0]), Double(colorRef[1])), Double(colorRef[2]))
+                let colorRef = CGColorGetComponents(currentColor.CGColor);
                 
-                blackDial!.currentValue = k
-                redCyanDial.currentValue = (1 - Double(colorRef[0]) - k) / (1 - k)
-                greenMagentaDial.currentValue = (1 - Double(colorRef[1]) - k) / (1 - k)
-                blueYellowDial.currentValue = (1 - Double(colorRef[2]) - k) / (1 - k)
+                removeDispatchers()
+          
+                if cmykMode
+                {
+                    let k = 1 - max(max(Double(colorRef[0]), Double(colorRef[1])), Double(colorRef[2]))
+                    
+                    blackDial!.currentValue = k
+                    redCyanDial.currentValue = (1 - Double(colorRef[0]) - k) / (1 - k)
+                    greenMagentaDial.currentValue = (1 - Double(colorRef[1]) - k) / (1 - k)
+                    blueYellowDial.currentValue = (1 - Double(colorRef[2]) - k) / (1 - k)
+                }
+                else
+                {
+                    redCyanDial.currentValue = Double(colorRef[0])
+                    greenMagentaDial.currentValue = Double(colorRef[1])
+                    blueYellowDial.currentValue = Double(colorRef[2])
+                }
+        
+                addDispatchers()
             }
-            else
-            {
-                redCyanDial.currentValue = Double(colorRef[0])
-                greenMagentaDial.currentValue = Double(colorRef[1])
-                blueYellowDial.currentValue = Double(colorRef[2])
-            }
-            
-            addDispatchers()
             
             swatch.backgroundColor = currentColor
             
@@ -106,6 +111,8 @@ class RGBpicker: UIControl
     
     func numericDialValueChanged(numericDial : NumericDial)
     {
+        updateDialsOnColorChange = false
+        
         if cmykMode
         {
             let red = (1 - CGFloat(redCyanDial.currentValue)) * (1 - CGFloat(blackDial!.currentValue))
@@ -122,6 +129,8 @@ class RGBpicker: UIControl
             
             currentColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
         }
+        
+        updateDialsOnColorChange = true
     }
     
     override func didMoveToWindow()

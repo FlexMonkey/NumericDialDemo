@@ -16,6 +16,7 @@ class ViewController: UIViewController
 {
     let rgbPicker = RGBpicker(frame: CGRectZero, cmykMode : false)
     let cmykPicker = RGBpicker(frame: CGRectZero, cmykMode : true)
+    let swatch = UIView()
     
     override func viewDidLoad()
     {
@@ -23,6 +24,7 @@ class ViewController: UIViewController
 
         view.addSubview(rgbPicker)
         view.addSubview(cmykPicker)
+        view.addSubview(swatch)
         
         currentColor = UIColor.brownColor()
         
@@ -39,6 +41,7 @@ class ViewController: UIViewController
             
             rgbPicker.currentColor = currentColor
             cmykPicker.currentColor = currentColor
+            swatch.backgroundColor = currentColor
             
             rgbPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
             cmykPicker.addTarget(self, action: "colorChanged:", forControlEvents: .ValueChanged)
@@ -57,6 +60,8 @@ class ViewController: UIViewController
         
         rgbPicker.frame = CGRect(x: view.frame.width / 2 - 300, y: margin, width: 600, height: 200)
         cmykPicker.frame = CGRect(x: view.frame.width / 2 - 400, y: view.frame.height - 200 - margin, width: 800, height: 200)
+        
+        swatch.frame = CGRect(x: view.frame.width / 2 - 200, y: view.frame.height / 2 - 100 - margin, width: 400, height: 200)
     }
 
 
