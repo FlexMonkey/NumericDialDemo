@@ -14,6 +14,7 @@
 		BE703F5F19BA353A00E2938E /* NumericDialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F5E19BA353A00E2938E /* NumericDialTests.swift */; };
 		BE703F6919BA35A100E2938E /* NumericDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F6819BA35A100E2938E /* NumericDial.swift */; };
 		BE703F6E19BA3F4700E2938E /* NumericDialTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F6D19BA3F4700E2938E /* NumericDialTrack.swift */; };
+		BE703FA319BB64EF00E2938E /* RGBpicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703FA219BB64EF00E2938E /* RGBpicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		BE703F5E19BA353A00E2938E /* NumericDialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericDialTests.swift; sourceTree = "<group>"; };
 		BE703F6819BA35A100E2938E /* NumericDial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericDial.swift; sourceTree = "<group>"; };
 		BE703F6D19BA3F4700E2938E /* NumericDialTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericDialTrack.swift; sourceTree = "<group>"; };
+		BE703FA219BB64EF00E2938E /* RGBpicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBpicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		BE703F4819BA353A00E2938E /* NumericDial */ = {
 			isa = PBXGroup;
 			children = (
+				BE703FA119BB64C100E2938E /* rbgPicker */,
 				BE703F6A19BA367200E2938E /* numericDial */,
 				BE703F4B19BA353A00E2938E /* AppDelegate.swift */,
 				BE703F4D19BA353A00E2938E /* ViewController.swift */,
@@ -121,6 +124,14 @@
 				BE703F6D19BA3F4700E2938E /* NumericDialTrack.swift */,
 			);
 			name = numericDial;
+			sourceTree = "<group>";
+		};
+		BE703FA119BB64C100E2938E /* rbgPicker */ = {
+			isa = PBXGroup;
+			children = (
+				BE703FA219BB64EF00E2938E /* RGBpicker.swift */,
+			);
+			name = rbgPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +236,7 @@
 				BE703F6E19BA3F4700E2938E /* NumericDialTrack.swift in Sources */,
 				BE703F6919BA35A100E2938E /* NumericDial.swift in Sources */,
 				BE703F4E19BA353A00E2938E /* ViewController.swift in Sources */,
+				BE703FA319BB64EF00E2938E /* RGBpicker.swift in Sources */,
 				BE703F4C19BA353A00E2938E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

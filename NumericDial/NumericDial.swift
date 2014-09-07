@@ -63,6 +63,9 @@ class NumericDial: UIControl
     {
         didSet
         {
+            currentValue = currentValue < 0 ? 0 : currentValue
+            currentValue = currentValue > 1 ? 1 : currentValue
+            
             CATransaction.begin()
             CATransaction.setDisableActions(true)
             
@@ -72,11 +75,20 @@ class NumericDial: UIControl
             CATransaction.commit()
         }
     }
+
+    var labelFunction : (Double) -> String = NumericDial.defaultLabelFunction
+    {
+        didSet
+        {
+            label.text = labelFunction(currentValue)
+        }
+    }
+
     
     func drawTrack()
     {
         label.frame = bounds.rectByInsetting(dx: 0, dy: 0)
-        label.text = NSString(format: "%.4f", currentValue);
+        label.text = labelFunction(currentValue)
         
         trackLayer.frame = bounds.rectByInsetting(dx: 0.0, dy: 0.0)
         trackLayer.setNeedsDisplay()
@@ -106,4 +118,8 @@ class NumericDial: UIControl
         return returnNumber;
     }
     
+    class func defaultLabelFunction(value : Double) -> String
+    {
+        return NSString(format: "%.4f", value)
+    }
 }

@@ -16,11 +16,14 @@ class ViewController: UIViewController {
     
     let numericDial = NumericDial(frame: CGRectZero)
     
+    let rgbPicker = RGBpicker(frame: CGRectZero)
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         view.addSubview(numericDial)
+        view.addSubview(rgbPicker)
         
         numericDial.addTarget(self, action: "numericDialValueChanged:", forControlEvents: .ValueChanged)
     }
@@ -33,8 +36,10 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews()
     {
         let margin: CGFloat = 20.0
-        let width = view.bounds.width - 2.0 * margin
+        let width = 325 - 2.0 * margin
         numericDial.frame = CGRect(x: margin, y: margin + topLayoutGuide.length, width: 325, height: 325)
+        
+        rgbPicker.frame = CGRect(x: 400, y: margin + topLayoutGuide.length, width: 600, height: 200)
     }
     
     @IBAction func sliderChangeHandler(sender: AnyObject)
