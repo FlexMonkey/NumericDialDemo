@@ -57,6 +57,14 @@ class NumericDial: UIControl
         {
             currentValue = Double(getValueFromAngle(angle))
         }
+        else if distance > (frame.width / 2.0 * 0.6) && distance < frame.width / 2 && (angle > -45 && angle < -35)
+        {
+            currentValue = 0
+        }
+        else if distance > (frame.width / 2.0 * 0.6) && distance < frame.width / 2 && (angle < 45 && angle > 35)
+        {
+            currentValue = 1
+        }
     }
     
     var currentValue : Double = 0.0
