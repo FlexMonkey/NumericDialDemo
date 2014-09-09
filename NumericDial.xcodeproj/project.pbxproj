@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EA0FE1319BF8D610002E06D /* ColorSpinnerItemRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0FE1219BF8D610002E06D /* ColorSpinnerItemRenderer.swift */; };
 		3EA9855919BE3081007C4AE3 /* ColorSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9855819BE3081007C4AE3 /* ColorSpinner.swift */; };
 		BE703F4C19BA353A00E2938E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F4B19BA353A00E2938E /* AppDelegate.swift */; };
 		BE703F4E19BA353A00E2938E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE703F4D19BA353A00E2938E /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EA0FE1219BF8D610002E06D /* ColorSpinnerItemRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpinnerItemRenderer.swift; sourceTree = "<group>"; };
 		3EA9855819BE3081007C4AE3 /* ColorSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpinner.swift; sourceTree = "<group>"; };
 		BE703F4619BA353A00E2938E /* NumericDial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumericDial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE703F4A19BA353A00E2938E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				BE703FA219BB64EF00E2938E /* RGBpicker.swift */,
 				3EA9855819BE3081007C4AE3 /* ColorSpinner.swift */,
+				3EA0FE1219BF8D610002E06D /* ColorSpinnerItemRenderer.swift */,
 			);
 			name = rbgPicker;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				BE703F4E19BA353A00E2938E /* ViewController.swift in Sources */,
 				BE703FA319BB64EF00E2938E /* RGBpicker.swift in Sources */,
 				BE703F4C19BA353A00E2938E /* AppDelegate.swift in Sources */,
+				3EA0FE1319BF8D610002E06D /* ColorSpinnerItemRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -97,6 +97,11 @@ class ColorSpinner: UIControl, UIPickerViewDataSource, UIPickerViewDelegate
         return colors.count
     }
     
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
+    {
+        return ColorSpinnerItemRenderer(frame: CGRectZero, color : colors[row])
+    }
+    
 }
 
 struct NamedColor
