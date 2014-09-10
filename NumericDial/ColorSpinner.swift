@@ -49,15 +49,22 @@ class ColorSpinner: UIControl, UIPickerViewDataSource, UIPickerViewDelegate
         didSet
         {
             sendActionsForControlEvents(.ValueChanged)
-            
-            spinner.selectRow(0, inComponent: 0, animated: true)
+ 
+            var matchFound = false
             
             for (index, namedColor) in enumerate(colors)
             {
-                if namedColor.color.description == currentColor.description
+                if CGColorEqualToColor(namedColor.color.CGColor, currentColor.CGColor)              
                 {
                     spinner.selectRow(index, inComponent: 0, animated: true)
+                    matchFound = true
                 }
+            }
+            
+            if !matchFound
+            {
+                spinner.selectRow(0, inComponent: 0, animated: true)
+                spinner.reloadComponent(0)
             }
         }
     }
@@ -99,7 +106,9 @@ class ColorSpinner: UIControl, UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
     {
-        return ColorSpinnerItemRenderer(frame: CGRectZero, color : colors[row])
+        let rendererColor = (row == 0) ? NamedColor(name: "Custom", color: currentColor) : colors[row]
+        
+        return ColorSpinnerItemRenderer(frame: CGRectZero, color : rendererColor)
     }
     
 }
